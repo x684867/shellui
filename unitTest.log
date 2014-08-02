@@ -1,0 +1,36 @@
+unit_test(): starting unit test.
+>>test instantiation of shellUIwindow
+>>test clear()
+>>test write()
+>>test move(1,1)
+>>test errorCount()
+Error-check test passes.
+>>destruction test.
+>>Destruction test passes
+unit_test(): starting unit test.
+>>test instantiation of shellUIwindow
+>>test clear()
+>>test write()
+>>test move(1,1)
+>>test errorCount()
+Error-check test passes.
+>>destruction test.
+>>Destruction test passes
+unit_test(): starting unit test.
+>>test instantiation of shellUIwindow
+>>test clear()
+>>test write()
+>>test move(1,1)
+>>test errorCount()
+Error-check test passes.
+>>destruction test.
+>>Destruction test passes
+unit_test(): starting unit test.
+>>test instantiation of shellUIwindow
+>>test clear()
+>>test write()
+>>test move(1,1)
+>>test errorCount()
+Error-check test passes.
+>>destruction test.
+>>Destruction test passes

@@ -46,15 +46,19 @@ class shellUIinput:
 	__wRow=0
 	__wCol=0
 	__buffer=''
+	
+	__hasCommand=False
 
-	def __init__(self):
+	def __init__(self,motd='Starting...'):
+		self.__statusLine=motd
 		self.__log=logger('shellUIinput')
 		self.__log.write('shellUIinput::__init__() start.')
 		self.__history=shellUIhistory(10)
 		self.__status=shellUIwindow(n="status",sRow=0,sCol=0,szRows=1,szCols=80)
 		self.__window=shellUIwindow(n="window",sRow=self.__wRow,sCol=self.__wCol,szRows=20,szCols=80)
-		(self.__wRow,self.wCol)=self.__window.move(0,0)
-		self.__statusLine="Starting..."
+		(self.__wRow,self.wCol)=self.__window.move(1,0)
+		self.__statusLine=self.__statusLine
+		self.__hasCommand=False
 		self.repaint()
 		self.__log.write('shellUIinput::__init__() done.')
 
@@ -64,7 +68,7 @@ class shellUIinput:
 		self.__window=None
 		self.__status=None
 
-	def __updateStatus__(self,m):
+	def updateStatus(self,m):
 		try:
 			if m!="":
 				self.__statusLine=m
@@ -85,7 +89,7 @@ class shellUIinput:
 		(self.__wRow,self.wCol)=self.__window.move(self.__wRow,0)
 		self.__window.write(lineString)
 		(self.__wRow,self.__wCol)=self.__window.move(self.__wRow,len(self.__buffer)+1)
-		self.__updateStatus__("")
+		self.updateStatus("")
 				
 	def __actionBackspace__(self):
 		self.__log.write("shellUIinput::__actionBackspace__():")
@@ -128,6 +132,7 @@ class shellUIinput:
 			(self.__wRow,self.__wCol)=self.__window.move(self.__wRow+1,0)
 			self.__buffer=''
 			self.repaint("")
+			self.__hasCommand=True
 			return (self.__wRow,self.__buffer)
 		except Exception as err:
 			raise Exception('on KeyEnter: ' + str(err))
@@ -142,21 +147,23 @@ class shellUIinput:
 		except Exception as err:
 			raise Exception('on anyKey: ' + str(err))
 
-	
+	def getRow(self):
+		return self.__wRow
+		
 	def getInput(self,startRow):
 		(self.__wRow,self.__wCol)=self.__window.move(startRow,0)
 		self.__log.write('shellUIinput::getInput() start')
 		self.__buffer=''
 		try:
 			self.repaint(self.__buffer)
-			while True:
+			while not self.__hasCommand:
 				self.__log.write('(wRow:'+str(self.__wRow)+',wCol:'+str(self.__wCol)+'):'+self.__buffer)
-				self.__updateStatus__("Waiting...")
+				self.updateStatus(self.__statusLine)
 				try:
 					ascii=self.__window.getch()
 				except Exception as err:
 					raise Exception('failed to get char from terminal.  Err:'+str(err))
-				self.__updateStatus__("Typing...")
+				self.updateStatus("Typing...")
 				try:
 					if (ascii==curses.KEY_LEFT) or (ascii==127):
 						self.__actionBackspace__()

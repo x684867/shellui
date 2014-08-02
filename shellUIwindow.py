@@ -61,99 +61,99 @@ class shellUIwindow(shellUIbase):
 		self.__window.refresh()
 	
 	def write(self,m):
-		self.__log.write("shellUIwindow::write() starting...")
-		self.__log.write("shellUIwindow::write(): "+str(m))
 		try:
+
 			nChars=abs(self.__szCols-self.__col)-1
 			self.__window.addnstr(self.__row,self.__col,str(m),nChars)
 			self.__window.refresh()
+
 		except Exception as err:
-			self.__crashSafe__(
-				"shellUIwindow::write() encountered error in addnstr() call." + \
-				"\nErr:"+str(err)
-			)
-		finally:
-			self.__log.write("shellUIwindow::write() done")
+			self.__crashSafe__("write()[addnstr()] encountered error.\nErr:"+str(err))
 
 	def move(self,row,col):
-		self.__log.write("shellUIwindow::move() starting...")
 		try:
+		
+			#Bounds-check:rows
 			if (row >= 0) and (row < self.__szRows):
 				self.__row=row
 			else:
 				if row < 0:
-					self.__log.write("row out of range ("+str(row)+") <0")
+					self.__row=0
+					raise Exception("row out of range ("+str(row)+") <0")
 				else:
-					self.__log.write("row out of range ("+str(row)+") >="+str(self.__szRows))
-					
+					self.__row=self.szRows-1
+					raise Exception("row out of range ("+str(row)+") >="+str(self.__szRows))
+			
+			#Bounds-check:cols
 			if (col >= 0) and (col < self.__szCols):
 				self.__col=col
 			else:
 				if col < 0:
-					self.__log.write("col out of range ("+str(col)+") <0")
+					self.__col=0
+					raise Exception("col out of range ("+str(col)+") <0")
 				else:
-					self.__log.write("col out of range ("+str(col)+") >="+str(self.__szCols))
+					self.__col=self.__szCols-1
+					raise Exception("col out of range ("+str(col)+") >="+str(self.__szCols))
 			try:
 				self.__window.move(self.__row,self.__col)
 			except Exception as err:
-				self.__log.write("shellUIwindow::move() failed.  Err:"+str(err))
-		except Exception as err:
-			self.__crashSafe__("shellUIwindow::move()  Err:" + str(err))
-		try:
-			self.__window.refresh()
-		except Exception as err:
-			self.__crashSafe__("shellUIwindow::move()[refreshing]  Err:" + str(err))
+				raise Exception("cursor move failed.  Err:"+str(err))
+			try:
+				self.__window.refresh()
+			except Exception as err:
+				raise Exception("window refresh failed.  Err:" + str(err))
 		
-		self.__log.write("shellUIwindow::move() done.")
+		except Exception as err:
+			self.__crashSafe__("shellUIwindow::move(): " + str(err))
+			curses.beep()
 		return (row,col)
-		
 	
 	def __init__(self,n="undefined",sRow=0,sCol=0,szRows=25,szCols=80):
 		#initialize the base class.
 		try:
-			shellUIbase.__init__(self,"shellUIwindow_"+n)
+			try:
+				shellUIbase.__init__(self,"shellUIwindow_"+n)
+			except Exception as err:
+				raise Exception('Error calling baseclass constructor. Err:'+str(err))
+			try:
+				self.__log=shellUIbase.__getLogger__(self)	
+			except Exception as err:
+				raise Exception('Error getting baseclass logger.  Err:'+str(err))
+			#Set the internal properties.
+			self.__row=sRow
+			self.__col=sCol
+			self.__szRows=szRows
+			self.__szCols=szCols
+			self.__name=n
+			try:
+				self.__log.write('creating window ['+str(n)+']')
+				self.__window=self.__createWindow__(sRow,sCol,szRows,szCols)
+				(self.__sRow,self.__sCol)=self.__window.getyx()
+			except Exception as err:
+				raise Exception('shellUIwindow::__init__(): Err:'+str(err))
 		except Exception as err:
-			raise Exception('shellUIwindow::__init__() Error calling baseclass constructor. Err:'+str(err))
-		try:
-			self.__log=shellUIbase.__getLogger__(self)	
-		except Exception as err:
-			raise Exception('shellUIwindow::__init__() Error getting baseclass logger.  Err:'+str(err))
-		self.__log.write('shellUIwindow::__init__()['+str(n)+','+str(sRow)+','+str(sCol)+']')
-		#Set the internal properties.
-		self.__row=sRow
-		self.__col=sCol
-		self.__szRows=szRows
-		self.__szCols=szCols
-		self.__name=n
-		try:
-			self.__log.write('shellUIwindow::__init__() creating window ['+str(n)+']')
-			self.__window=self.__createWindow__(sRow,sCol,szRows,szCols)
-			(self.__sRow,self.__sCol)=self.__window.getyx()
-		except Exception as err:
-			self.__crashSafe__('shellUIwindow::__init__()Err:'+str(err))
-		self.__log.write("shellUIwindow::__init__() done")
-
+			self.__crashSafe__("shellUIwindow::__init__(): " + str(err))
+		self.__log.write("shellUIwindow::__init__(): Done")
+		
+		
 	def __del__(self):
-		self.__log.write('shellUIwindow::__del__()['+str(self.__name)+']')
+		self.__log.write('shellUIwindow::__del__()['+str(self.__name)+'] starting')
 		if self.__window is not None:
 			try:
 				del self.__window
 			except Exception as err:
-				self.__crashSafe__(
-					'shellUIwindow::__del__()  ' + \
-					'\nErr:'+str(err)
-				)
+				self.__crashSafe__('__del__()\nErr:'+str(err))
 		else:
 			pass
-		self.__log.write('shellUIwindow::__del__()['+str(self.__name)+'] has closed window.')
 		try:
-			self.__log=None
 			shellUIbase.__del__(self)
 		except Exception as err:
 			self.__crashSafe__(
 				'shellUIwindow::__init__() Error calling baseclass destructor.' + \
 				'\nERROR:'+str(err)+'\n' \
 			)
+		self.__log.write('shellUIwindow::__del__()['+str(self.__name)+'] done')
+		self.__log=None
 
 # Unit tests
 #

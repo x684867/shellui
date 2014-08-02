@@ -1,0 +1,44 @@
+ 
+2014-08-02 19:06:39:commandParser:
+2014-08-02 19:06:39:commandParser:----------------------------------------
+2014-08-02 19:06:39:commandParser:    logger.log[commandParser]
+2014-08-02 19:06:39:commandParser:    Start: 2014-08-02 19:06:39.419775
+2014-08-02 19:06:39:commandParser:----------------------------------------
+2014-08-02 19:06:39:commandParser:commandParser::__init__()
+2014-08-02 19:06:39:shellUI:
+2014-08-02 19:06:39:shellUI:----------------------------------------
+2014-08-02 19:06:39:shellUI:    logger.log[shellUI]
+2014-08-02 19:06:39:shellUI:    Start: 2014-08-02 19:06:39.419939
+2014-08-02 19:06:39:shellUI:----------------------------------------
+2014-08-02 19:06:39:shellUIinput:
+2014-08-02 19:06:39:shellUIinput:----------------------------------------
+2014-08-02 19:06:39:shellUIinput:    logger.log[shellUIinput]
+2014-08-02 19:06:39:shellUIinput:    Start: 2014-08-02 19:06:39.420078
+2014-08-02 19:06:39:shellUIinput:----------------------------------------
+2014-08-02 19:06:39:shellUIinput:shellUIinput::__init__() start.
+2014-08-02 19:06:39:shellUIhistory:
+2014-08-02 19:06:39:shellUIhistory:----------------------------------------
+2014-08-02 19:06:39:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-02 19:06:39:shellUIhistory:    Start: 2014-08-02 19:06:39.420238
+2014-08-02 19:06:39:shellUIhistory:----------------------------------------
+2014-08-02 19:06:39:shellUIwindow_status:
+2014-08-02 19:06:39:shellUIwindow_status:----------------------------------------
+2014-08-02 19:06:39:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-02 19:06:39:shellUIwindow_status:    Start: 2014-08-02 19:06:39.420394
+2014-08-02 19:06:39:shellUIwindow_status:----------------------------------------
+2014-08-02 19:06:39:shellUIwindow_status:shellUIbase::__init__()
+2014-08-02 19:06:39:shellUIwindow_status:creating window [status]
+2014-08-02 19:06:39:shellUIwindow_status:shellUIwindow::__init__(): Done
+2014-08-02 19:06:39:shellUIwindow_window:
+2014-08-02 19:06:39:shellUIwindow_window:----------------------------------------
+2014-08-02 19:06:39:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-02 19:06:39:shellUIwindow_window:    Start: 2014-08-02 19:06:39.422241
+2014-08-02 19:06:39:shellUIwindow_window:----------------------------------------
+2014-08-02 19:06:39:shellUIwindow_window:shellUIbase::__init__()
+2014-08-02 19:06:39:shellUIwindow_window:creating window [window]
+2014-08-02 19:06:39:shellUIwindow_window:shellUIwindow::__init__(): Done
+2014-08-02 19:06:39:shellUIinput:shellUIinput::__init__() done.
+2014-08-02 19:06:39:shellUI:getCommand(): starting
+2014-08-02 19:06:39:shellUI:parse()
+2014-08-02 19:06:39:shellUIinput:shellUIinput::getInput() start
+2014-08-02 19:06:39:shellUIinput:(wRow:1,wCol:1):
