@@ -45,16 +45,14 @@ class shellUIwindow(shellUIbase):
 	__log=None
 	
 	def clear(self):
-		self.__log.write("shellUIwindow::clear() starting...")
 		try:
 			self.__window.clear()
 			self.__window.refresh()
 		except Exception as err:
 			self.__crashSafe__(
 				'shellUIwindow::clear()' + \
-				'\nErr:'+str(err))
-		finally:
-			self.__log.write("shellUIwindow::clear() done")
+				'\nErr:'+str(err) \
+			)
 
 	def writeBlink(self,r,c,cursor):
 		self.__window.addstr(r,c,cursor,curses.A_BLINK)
@@ -72,7 +70,6 @@ class shellUIwindow(shellUIbase):
 
 	def move(self,row,col):
 		try:
-		
 			#Bounds-check:rows
 			if (row >= 0) and (row < self.__szRows):
 				self.__row=row
@@ -104,12 +101,11 @@ class shellUIwindow(shellUIbase):
 				raise Exception("window refresh failed.  Err:" + str(err))
 		
 		except Exception as err:
-			self.__crashSafe__("shellUIwindow::move(): " + str(err))
+			self.__crashSafe__("move(): " + str(err))
 			curses.beep()
 		return (row,col)
 	
 	def __init__(self,n="undefined",sRow=0,sCol=0,szRows=25,szCols=80):
-		#initialize the base class.
 		try:
 			try:
 				shellUIbase.__init__(self,"shellUIwindow_"+n)
@@ -126,18 +122,14 @@ class shellUIwindow(shellUIbase):
 			self.__szCols=szCols
 			self.__name=n
 			try:
-				self.__log.write('creating window ['+str(n)+']')
 				self.__window=self.__createWindow__(sRow,sCol,szRows,szCols)
 				(self.__sRow,self.__sCol)=self.__window.getyx()
 			except Exception as err:
-				raise Exception('shellUIwindow::__init__(): Err:'+str(err))
+				raise Exception('__init__(): Err:'+str(err))
 		except Exception as err:
-			self.__crashSafe__("shellUIwindow::__init__(): " + str(err))
-		self.__log.write("shellUIwindow::__init__(): Done")
-		
-		
+			self.__crashSafe__("__init__(): " + str(err))
+				
 	def __del__(self):
-		self.__log.write('shellUIwindow::__del__()['+str(self.__name)+'] starting')
 		if self.__window is not None:
 			try:
 				del self.__window
@@ -149,10 +141,9 @@ class shellUIwindow(shellUIbase):
 			shellUIbase.__del__(self)
 		except Exception as err:
 			self.__crashSafe__(
-				'shellUIwindow::__init__() Error calling baseclass destructor.' + \
+				'__init__() Error calling baseclass destructor.' + \
 				'\nERROR:'+str(err)+'\n' \
 			)
-		self.__log.write('shellUIwindow::__del__()['+str(self.__name)+'] done')
 		self.__log=None
 
 # Unit tests

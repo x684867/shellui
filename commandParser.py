@@ -64,15 +64,14 @@ class commandParser:
 
 	def __init__(self):
 		self.__log=logger('commandParser')
-		self.__log.write("commandParser::__init__()")
 	
 	def __del__(self):
-		self.__log.write("commandParser::__del__()")
-	
+		pass
+		
 	def hasCommand(self):
-		return (self.__command =='')
+		return (len(self.__command)!=0)
 	
-	def parse(commandString):
+	def parse(self,commandString):
 		#
 		# command
 		# command <parameter>
@@ -83,11 +82,17 @@ class commandParser:
 		PARSE_ITEM_ARG=1
 		PARSE_ITEM_VALUE=2
 		#
+		self.__log.write("parse() starting")
 		try:
-			if typeof(commandString) is str:
+			if type(commandString) is str:
+				self.__log.write("splitting " + commandString)
 				arrCmd=re.sub(' +',' ',commandString).split(' ')
+				self.__log.write("splitStr: " +str(arrCmd))
 			else:
-				raise Exception("commandString not type <string>")
+				raise Exception(
+									"commandString not type <string> type:" + \
+									str(type(commandString))
+				)
 			# start parsing for the <command>
 			if len(arrCmd) == 0:
 				self.__command=""
@@ -113,11 +118,10 @@ class commandParser:
 							v=item
 							lastItem=PARSE_ITEM_VALUE
 						else:
-							raise Exception("syntax error.  Expected --<argName>")
+							raise Exception("Syntax error.  Expected --<argName>")
 					self.__arguments.append({a:v})
 			else:
 				raise Exception("unexpected internal error.")
 		except Exception as err:
-			self.__log.write("commandParser::parse() ERROR:"+str(err))
-			
+			self.__log.write("parse(): ERROR["+str(type(commandString))+"]:"+str(err))
 			

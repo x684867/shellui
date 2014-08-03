@@ -42,31 +42,40 @@ class shellUI(shellUIinput):
 			self.__uiRow=self.getRow()
 		except Exception as err:
 			self.__log.write("__init__(): error:"+str(err))
-			
+
+	def __del__(self):
+		self.__log.write("__del__()")
+		pass
+	
 	def getCommand(self):
-		self.__log.write("getCommand(): starting")
 		try:
-			while self.__parser.hasCommand():
-				self.__log.write("parse()")
-				try:
-					commandString=self.getInput(self.__uiRow)
-					self.__log.write("COMMANDLINE["+str(self.__uiRow)+"]: " + commandString)
-					self.__uiRow+=1
-				except Exception as err:
-					self.updateStatus("shellUI failed to get command string.  " + str(err))
-					raise Exception(err)
+			try:
+				commandString=self.getInput(self.__uiRow)
+				self.__uiRow+=1
+			except Exception as err:
+				raise Exception("shellUI failed to get command string.  " + str(err))
+
+			self.__log.write("COMMANDLINE["+str(self.__uiRow)+"]: " + str(commandString))
+			
+			if self.__parser.hasCommand():
 				try:
 					self.__parser.parse(commandString)
 				except Exception as err:
-					self.updateStatus("Parser Error.  Use 'help' for usage.  "+str(err))
 					raise Exception(err)
-		except Exception as err:
-			self.__log.write("shellUI::getCommand(): " + str(err))				
-		return ( \
+			
+			self.__log.write(
+				"\ncommand: 	" + self.__parser.command + "\n" + \
+				"parameter:	" + self.__parser.parameter + "\n" + \
+				"arguments: " + str(self.__parser.arguments) + "\n" \
+			)
+			return ( \
 					self.__parser.command, \
 					self.__parser.parameter, \
 					self.__parser.arguments \
-		)
+			)
+		except Exception as err:
+			self.__log.write(str(err))				
+	
 	
 if __name__=="__main__":
 	ui=shellUI()

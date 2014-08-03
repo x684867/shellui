@@ -44,11 +44,9 @@ class logger:
 			self.fh=open(str(self.logFile),'a',0)
 		except Exception as err:
 			raise Exception("logger failed to open file: " + str(self.logFile))
-		self.write("")
 		self.write(""+"-"*40)
 		self.write("    "+str(self.logFile)+"["+str(self.channel)+"]")
 		self.write("    Start: "+str(datetime.datetime.utcnow()))
-		self.write("-"*40)
 	
 	def __del__(self):
 		self.fh.close()

@@ -30,6 +30,7 @@
 # interactions with the two windows while maintaining a user
 # history log for 'up-arrow' history retrieval.
 #
+
 import curses
 from logger import logger
 from shellUIwindow import shellUIwindow
@@ -46,21 +47,25 @@ class shellUIinput:
 	__wRow=0
 	__wCol=0
 	__buffer=''
+	__prompt='#'
 	
 	__hasCommand=False
 
-	def __init__(self,motd='Starting...'):
+	def __init__(self,motd='Starting...',prompt='#'):
 		self.__statusLine=motd
+		self.__prompt=prompt
 		self.__log=logger('shellUIinput')
-		self.__log.write('shellUIinput::__init__() start.')
 		self.__history=shellUIhistory(10)
 		self.__status=shellUIwindow(n="status",sRow=0,sCol=0,szRows=1,szCols=80)
 		self.__window=shellUIwindow(n="window",sRow=self.__wRow,sCol=self.__wCol,szRows=20,szCols=80)
+		(self.__wRow,self.wCol)=self.__window.move(0,0)
+		self.__window.write(self.__prompt)
 		(self.__wRow,self.wCol)=self.__window.move(1,0)
+		
 		self.__statusLine=self.__statusLine
+		
 		self.__hasCommand=False
 		self.repaint()
-		self.__log.write('shellUIinput::__init__() done.')
 
 	def __del__(self):
 		self.__log=None
@@ -68,31 +73,35 @@ class shellUIinput:
 		self.__window=None
 		self.__status=None
 
+	def setStatus(self,m):
+		self.__statusLine=str(m)
+		self.updateStatus(m)
+
 	def updateStatus(self,m):
 		try:
 			if m!="":
 				self.__statusLine=m
 			self.__status.move(0,0)
+			fillChars=" " * ( 80 - len(self.__statusLine) -1)
 			self.__status.write( \
 					"Row:"+str(self.__wRow) + "," + \
 					"Col:"+str(self.__wCol) + "," + \
-					"Status:"+str(self.__statusLine)[0:(80-self.__wCol-len(self.__statusLine))] \
+					"Status:"+str(self.__statusLine)[0:(80-self.__wCol-len(self.__statusLine))] + fillChars \
 			)
 			self.__window.move(self.__wRow,self.__wCol)
 		except Exception as err:
-			self.__log.write("shellUIinput::__updateStatus__(): " + str(err))
+			self.__log.write("__updateStatus__(): " + str(err))
 		return m
 
-	def repaint(self,prompt="#"):
+	def repaint(self):
 		fillString=" " * (80-len(self.__buffer)-2)
-		lineString=prompt+self.__buffer+fillString
+		lineString=self.__prompt+self.__buffer+fillString
 		(self.__wRow,self.wCol)=self.__window.move(self.__wRow,0)
 		self.__window.write(lineString)
 		(self.__wRow,self.__wCol)=self.__window.move(self.__wRow,len(self.__buffer)+1)
 		self.updateStatus("")
 				
 	def __actionBackspace__(self):
-		self.__log.write("shellUIinput::__actionBackspace__():")
 		try:
 			self.__buffer=self.__buffer[0:len(self.__buffer)-1]
 			self.repaint()
@@ -100,19 +109,16 @@ class shellUIinput:
 			raise Exception('on Backspace: '+str(err))	
 
 	def __actionKeyRight__(self):
-		self.__log.write("shellUIinput::getInput(): KeyPress (RIGHT")
 		curses.beep()
 
 	def __actionKeyDown__(self):
-		self.__log.write("shellUIinput::getInput(): KeyPress (DOWN)")		
 		try:
-			self.__log.write('on KeyDown: not implemented')
+			curses.beep()
 			pass
 		except Exception as err:
 			raise Exception('on KeyDown: ' + str(err))	
 
 	def __actionKeyUp__(self):
-		self.__log.write("shellUIinput::getInput(): KeyPress (UP)")					
 		try:
 			lastLine=self.__history.pop().strip()
 			if lastLine=="":
@@ -120,20 +126,19 @@ class shellUIinput:
 			else:
 				self.__buffer=lastLine
 				self.repaint(self.__buffer)
-				self.__log.write("shellUIinput::actionKeyUp() history:"+str(lastLine))
 		except Exception as err:
 			curses.beep()
 	
 	def __actionKeyEnter__(self):
-		self.__log.write("shellUIinput::getInput(): KeyPress (ENTER)")
 		try:
-			self.__history.push(self.__buffer.strip())
-			self.__log.write("shellUIinput::getInput()[saveHistory size]:"+str(self.__history.size()))
-			(self.__wRow,self.__wCol)=self.__window.move(self.__wRow+1,0)
-			self.__buffer=''
-			self.repaint("")
-			self.__hasCommand=True
-			return (self.__wRow,self.__buffer)
+			if self.__buffer.strip() == "":
+				self.__log.write("Empty buffer")
+			else:
+				self.__history.push(self.__buffer.strip())
+				(self.__wRow,self.__wCol)=self.__window.move(self.__wRow+1,0)
+				self.repaint()
+				self.__hasCommand=True
+				return self.__buffer.strip()
 		except Exception as err:
 			raise Exception('on KeyEnter: ' + str(err))
 
@@ -152,18 +157,15 @@ class shellUIinput:
 		
 	def getInput(self,startRow):
 		(self.__wRow,self.__wCol)=self.__window.move(startRow,0)
-		self.__log.write('shellUIinput::getInput() start')
 		self.__buffer=''
 		try:
-			self.repaint(self.__buffer)
+			self.repaint()
 			while not self.__hasCommand:
-				self.__log.write('(wRow:'+str(self.__wRow)+',wCol:'+str(self.__wCol)+'):'+self.__buffer)
 				self.updateStatus(self.__statusLine)
 				try:
 					ascii=self.__window.getch()
 				except Exception as err:
 					raise Exception('failed to get char from terminal.  Err:'+str(err))
-				self.updateStatus("Typing...")
 				try:
 					if (ascii==curses.KEY_LEFT) or (ascii==127):
 						self.__actionBackspace__()
@@ -174,16 +176,14 @@ class shellUIinput:
 					elif ascii==curses.KEY_UP:
 						self.__actionKeyUp__()
 					elif ascii==13:
-						self.__actionKeyEnter__()
+						return self.__actionKeyEnter__()
+						break
 					else:
 						self.__actionKeyCapture__(ascii)
 				except Exception as err:
 					raise Exception('in eval char.  Err:'+str(err))
-
-			self.__log.write('shellUIbase::getInput() stop')	
 		except Exception as err:
-			self.__log.write("shellUIbase::getInput() Err:"+str(err))
-		self.__log.write('shellUIbase::getInput() done.')
+			self.__log.write("getInput() Err:"+str(err))
 
 #
 # Unit Testing

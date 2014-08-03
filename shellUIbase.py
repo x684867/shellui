@@ -59,7 +59,6 @@ class shellUIbase:
 	def __init__(self,logFile="shellUIbase"):
 		try:
 			self.__log=logger(logFile)
-			self.__log.write('shellUIbase::__init__()')
 			locale.setlocale(locale.LC_ALL,'')
 			self.__encoding=locale.getpreferredencoding()
 			self.__terminal=curses.initscr()
@@ -77,11 +76,10 @@ class shellUIbase:
 	
 	def __del__(self):
 		try:
-			self.__log.write('shellUIbase::__del__()')
 			if self.__terminal is not None:
 				self.__terminal.keypad(0); 
 			else:
-				self.__log.write("shellUIbase::__del__(): self.__terminal not initialized.")
+				self.__log.write('__del__(): self.__terminal not initialized.')
 			if self.__curses is not None:
 				self.__curses.cbreak(); 
 				self.__curses.echo()
@@ -89,9 +87,9 @@ class shellUIbase:
 				self.__curses.nl()
 				self.__curses.curs_set(1)
 			else:
-				self.__log.write("shellUIbase::__del__(): self.__curses not initialized.")
+				self.__log.write('__del__(): self.__curses not initialized.')
 		except Exception as err:
-			self.__crashSafe__('shellUIbase::__del__()  Err:'+str(err))
+			self.__crashSafe__('__del__()  Err:'+str(err))
 			
 	def __createWindow__(self,sRow,sCol,szRows,szCols):
 		if not type(sRow) is int:
