@@ -1,1 +1,404 @@
  
+2014-08-03 23:46:15:commandParser:----------------------------------------
+2014-08-03 23:46:15:commandParser:    logger.log[commandParser]
+2014-08-03 23:46:15:commandParser:    Start: 2014-08-03 23:46:15.663159
+2014-08-03 23:46:15:shellUI:----------------------------------------
+2014-08-03 23:46:15:shellUI:    logger.log[shellUI]
+2014-08-03 23:46:15:shellUI:    Start: 2014-08-03 23:46:15.663275
+2014-08-03 23:46:15:shellUIinput:----------------------------------------
+2014-08-03 23:46:15:shellUIinput:    logger.log[shellUIinput]
+2014-08-03 23:46:15:shellUIinput:    Start: 2014-08-03 23:46:15.663382
+2014-08-03 23:46:15:shellUIhistory:----------------------------------------
+2014-08-03 23:46:15:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-03 23:46:15:shellUIhistory:    Start: 2014-08-03 23:46:15.663484
+2014-08-03 23:46:15:shellUIwindow_status:----------------------------------------
+2014-08-03 23:46:15:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-03 23:46:15:shellUIwindow_status:    Start: 2014-08-03 23:46:15.663628
+2014-08-03 23:46:15:shellUIwindow_window:----------------------------------------
+2014-08-03 23:46:15:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-03 23:46:15:shellUIwindow_window:    Start: 2014-08-03 23:46:15.690711
+2014-08-04 00:58:41:shellUIinput:getInput() Err:in eval char.  Err:on anyKey: appending self.__buffer chr() arg not in range(256)
+2014-08-04 00:58:41:shellUI:COMMANDLINE[2]: None
+2014-08-04 00:58:41:commandParser:parse() starting
+2014-08-04 00:58:41:commandParser:parse(): ERROR[<type 'NoneType'>]:commandString not type <string> type:<type 'NoneType'>
+2014-08-04 00:58:41:shellUI:
+command: 	
+parameter:	
+arguments: []
+
+2014-08-04 02:19:20:commandParser:----------------------------------------
+2014-08-04 02:19:20:commandParser:    logger.log[commandParser]
+2014-08-04 02:19:20:commandParser:    Start: 2014-08-04 02:19:20.986506
+2014-08-04 02:19:20:shellUI:----------------------------------------
+2014-08-04 02:19:20:shellUI:    logger.log[shellUI]
+2014-08-04 02:19:20:shellUI:    Start: 2014-08-04 02:19:20.986720
+2014-08-04 02:19:20:shellUIinput:----------------------------------------
+2014-08-04 02:19:20:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:19:20:shellUIinput:    Start: 2014-08-04 02:19:20.986919
+2014-08-04 02:19:20:shellUIhistory:----------------------------------------
+2014-08-04 02:19:20:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:19:20:shellUIhistory:    Start: 2014-08-04 02:19:20.987122
+2014-08-04 02:19:20:shellUIwindow_status:----------------------------------------
+2014-08-04 02:19:20:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:19:20:shellUIwindow_status:    Start: 2014-08-04 02:19:20.987382
+2014-08-04 02:19:20:shellUIwindow_window:----------------------------------------
+2014-08-04 02:19:20:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:19:20:shellUIwindow_window:    Start: 2014-08-04 02:19:20.989486
+2014-08-04 02:19:23:shellUI:COMMANDLINE[2]: This is a test
+2014-08-04 02:19:23:commandParser:parse() starting
+2014-08-04 02:19:23:commandParser:splitting This is a test
+2014-08-04 02:19:23:commandParser:splitStr: ['This', 'is', 'a', 'test']
+2014-08-04 02:19:23:commandParser:argLen:2
+2014-08-04 02:19:23:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [Syntax error.  Expected --<argName>]
+2014-08-04 02:19:23:shellUI:
+command: 	This
+parameter:	is
+arguments: []
+
+2014-08-04 02:19:23:shellUI:__del__()
+2014-08-04 02:19:29:commandParser:----------------------------------------
+2014-08-04 02:19:29:commandParser:    logger.log[commandParser]
+2014-08-04 02:19:29:commandParser:    Start: 2014-08-04 02:19:29.288596
+2014-08-04 02:19:29:shellUI:----------------------------------------
+2014-08-04 02:19:29:shellUI:    logger.log[shellUI]
+2014-08-04 02:19:29:shellUI:    Start: 2014-08-04 02:19:29.288698
+2014-08-04 02:19:29:shellUIinput:----------------------------------------
+2014-08-04 02:19:29:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:19:29:shellUIinput:    Start: 2014-08-04 02:19:29.288801
+2014-08-04 02:19:29:shellUIhistory:----------------------------------------
+2014-08-04 02:19:29:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:19:29:shellUIhistory:    Start: 2014-08-04 02:19:29.288910
+2014-08-04 02:19:29:shellUIwindow_status:----------------------------------------
+2014-08-04 02:19:29:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:19:29:shellUIwindow_status:    Start: 2014-08-04 02:19:29.289029
+2014-08-04 02:19:29:shellUIwindow_window:----------------------------------------
+2014-08-04 02:19:29:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:19:29:shellUIwindow_window:    Start: 2014-08-04 02:19:29.290415
+2014-08-04 02:19:38:shellUI:COMMANDLINE[2]: Get a --command andValue
+2014-08-04 02:19:38:commandParser:parse() starting
+2014-08-04 02:19:38:commandParser:splitting Get a --command andValue
+2014-08-04 02:19:38:commandParser:splitStr: ['Get', 'a', '--command', 'andValue']
+2014-08-04 02:19:38:commandParser:argLen:2
+2014-08-04 02:19:38:commandParser:arg:  command
+2014-08-04 02:19:38:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [list index out of range]
+2014-08-04 02:19:38:shellUI:
+command: 	Get
+parameter:	a
+arguments: []
+
+2014-08-04 02:19:38:shellUI:__del__()
+2014-08-04 02:26:50:commandParser:----------------------------------------
+2014-08-04 02:26:50:commandParser:    logger.log[commandParser]
+2014-08-04 02:26:50:commandParser:    Start: 2014-08-04 02:26:50.362483
+2014-08-04 02:26:50:shellUI:----------------------------------------
+2014-08-04 02:26:50:shellUI:    logger.log[shellUI]
+2014-08-04 02:26:50:shellUI:    Start: 2014-08-04 02:26:50.362587
+2014-08-04 02:26:50:shellUIinput:----------------------------------------
+2014-08-04 02:26:50:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:26:50:shellUIinput:    Start: 2014-08-04 02:26:50.362984
+2014-08-04 02:26:50:shellUIhistory:----------------------------------------
+2014-08-04 02:26:50:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:26:50:shellUIhistory:    Start: 2014-08-04 02:26:50.363218
+2014-08-04 02:26:50:shellUIwindow_status:----------------------------------------
+2014-08-04 02:26:50:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:26:50:shellUIwindow_status:    Start: 2014-08-04 02:26:50.363862
+2014-08-04 02:26:50:shellUIwindow_window:----------------------------------------
+2014-08-04 02:26:50:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:26:50:shellUIwindow_window:    Start: 2014-08-04 02:26:50.365378
+2014-08-04 02:27:03:shellUI:COMMANDLINE[2]: command param --arg1 a --arg2 b
+2014-08-04 02:27:03:commandParser:parse() starting
+2014-08-04 02:27:03:commandParser:argLen:4
+2014-08-04 02:27:03:commandParser:arg:  arg1
+2014-08-04 02:27:03:commandParser:next: --arg2
+2014-08-04 02:27:03:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [Syntax error.  Expected --<argName>]
+2014-08-04 02:27:03:shellUI:
+command: 	command
+parameter:	param
+arguments: [{'arg1': ''}]
+
+2014-08-04 02:27:03:shellUI:__del__()
+2014-08-04 02:28:01:commandParser:----------------------------------------
+2014-08-04 02:28:01:commandParser:    logger.log[commandParser]
+2014-08-04 02:28:01:commandParser:    Start: 2014-08-04 02:28:01.103957
+2014-08-04 02:28:01:shellUI:----------------------------------------
+2014-08-04 02:28:01:shellUI:    logger.log[shellUI]
+2014-08-04 02:28:01:shellUI:    Start: 2014-08-04 02:28:01.104076
+2014-08-04 02:28:01:shellUIinput:----------------------------------------
+2014-08-04 02:28:01:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:28:01:shellUIinput:    Start: 2014-08-04 02:28:01.104173
+2014-08-04 02:28:01:shellUIhistory:----------------------------------------
+2014-08-04 02:28:01:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:28:01:shellUIhistory:    Start: 2014-08-04 02:28:01.104269
+2014-08-04 02:28:01:shellUIwindow_status:----------------------------------------
+2014-08-04 02:28:01:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:28:01:shellUIwindow_status:    Start: 2014-08-04 02:28:01.104416
+2014-08-04 02:28:01:shellUIwindow_window:----------------------------------------
+2014-08-04 02:28:01:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:28:01:shellUIwindow_window:    Start: 2014-08-04 02:28:01.105958
+2014-08-04 02:28:12:shellUI:COMMANDLINE[2]: cmd p --a 1 --b 2
+2014-08-04 02:28:12:commandParser:parse() starting
+2014-08-04 02:28:12:commandParser:argLen:4
+2014-08-04 02:28:12:commandParser:arg:  a
+2014-08-04 02:28:12:commandParser:next: --b
+2014-08-04 02:28:12:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [Syntax error.  Expected --<argName>]
+2014-08-04 02:28:12:shellUI:
+command: 	cmd
+parameter:	p
+arguments: [{'a': ''}]
+
+2014-08-04 02:28:12:shellUI:__del__()
+2014-08-04 02:41:26:commandParser:----------------------------------------
+2014-08-04 02:41:26:commandParser:    logger.log[commandParser]
+2014-08-04 02:41:26:commandParser:    Start: 2014-08-04 02:41:26.200878
+2014-08-04 02:41:26:shellUI:----------------------------------------
+2014-08-04 02:41:26:shellUI:    logger.log[shellUI]
+2014-08-04 02:41:26:shellUI:    Start: 2014-08-04 02:41:26.201066
+2014-08-04 02:41:26:shellUIinput:----------------------------------------
+2014-08-04 02:41:26:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:41:26:shellUIinput:    Start: 2014-08-04 02:41:26.201158
+2014-08-04 02:41:26:shellUIhistory:----------------------------------------
+2014-08-04 02:41:26:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:41:26:shellUIhistory:    Start: 2014-08-04 02:41:26.201247
+2014-08-04 02:41:26:shellUIwindow_status:----------------------------------------
+2014-08-04 02:41:26:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:41:26:shellUIwindow_status:    Start: 2014-08-04 02:41:26.201360
+2014-08-04 02:41:26:shellUIwindow_window:----------------------------------------
+2014-08-04 02:41:26:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:41:26:shellUIwindow_window:    Start: 2014-08-04 02:41:26.202830
+2014-08-04 02:41:36:shellUI:COMMANDLINE[2]: cmd param --arg 1 --another 2
+2014-08-04 02:41:36:commandParser:parse() starting
+2014-08-04 02:41:36:commandParser:val:  1
+2014-08-04 02:41:36:commandParser:arg:  arg
+2014-08-04 02:41:36:commandParser:next: --another
+2014-08-04 02:41:36:commandParser:val:  2
+2014-08-04 02:41:36:commandParser:arg:  another
+2014-08-04 02:41:36:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [list index out of range]
+2014-08-04 02:41:36:shellUI:
+command: 	cmd
+parameter:	param
+arguments: [{'arg': '1'}]
+
+2014-08-04 02:41:36:shellUI:__del__()
+2014-08-04 02:43:19:commandParser:----------------------------------------
+2014-08-04 02:43:19:commandParser:    logger.log[commandParser]
+2014-08-04 02:43:19:commandParser:    Start: 2014-08-04 02:43:19.381051
+2014-08-04 02:43:19:shellUI:----------------------------------------
+2014-08-04 02:43:19:shellUI:    logger.log[shellUI]
+2014-08-04 02:43:19:shellUI:    Start: 2014-08-04 02:43:19.381169
+2014-08-04 02:43:19:shellUIinput:----------------------------------------
+2014-08-04 02:43:19:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:43:19:shellUIinput:    Start: 2014-08-04 02:43:19.381268
+2014-08-04 02:43:19:shellUIhistory:----------------------------------------
+2014-08-04 02:43:19:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:43:19:shellUIhistory:    Start: 2014-08-04 02:43:19.381364
+2014-08-04 02:43:19:shellUIwindow_status:----------------------------------------
+2014-08-04 02:43:19:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:43:19:shellUIwindow_status:    Start: 2014-08-04 02:43:19.381495
+2014-08-04 02:43:19:shellUIwindow_window:----------------------------------------
+2014-08-04 02:43:19:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:43:19:shellUIwindow_window:    Start: 2014-08-04 02:43:19.383020
+2014-08-04 02:43:28:shellUI:COMMANDLINE[2]: cmd param --arg 1 --another 2
+2014-08-04 02:43:28:commandParser:parse() starting
+2014-08-04 02:43:28:commandParser:0:starting...
+2014-08-04 02:43:28:commandParser:val:  1
+2014-08-04 02:43:28:commandParser:0:arg:  arg
+2014-08-04 02:43:28:commandParser:0:next: --another
+2014-08-04 02:43:28:commandParser:0:starting...
+2014-08-04 02:43:28:commandParser:val:  2
+2014-08-04 02:43:28:commandParser:0:arg:  another
+2014-08-04 02:43:28:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [list index out of range]
+2014-08-04 02:43:28:shellUI:
+command: 	cmd
+parameter:	param
+arguments: [{'arg': '1'}]
+
+2014-08-04 02:43:28:shellUI:__del__()
+2014-08-04 02:44:02:commandParser:----------------------------------------
+2014-08-04 02:44:02:commandParser:    logger.log[commandParser]
+2014-08-04 02:44:02:commandParser:    Start: 2014-08-04 02:44:02.792504
+2014-08-04 02:44:02:shellUI:----------------------------------------
+2014-08-04 02:44:02:shellUI:    logger.log[shellUI]
+2014-08-04 02:44:02:shellUI:    Start: 2014-08-04 02:44:02.792633
+2014-08-04 02:44:02:shellUIinput:----------------------------------------
+2014-08-04 02:44:02:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:44:02:shellUIinput:    Start: 2014-08-04 02:44:02.792742
+2014-08-04 02:44:02:shellUIhistory:----------------------------------------
+2014-08-04 02:44:02:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:44:02:shellUIhistory:    Start: 2014-08-04 02:44:02.792839
+2014-08-04 02:44:02:shellUIwindow_status:----------------------------------------
+2014-08-04 02:44:02:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:44:02:shellUIwindow_status:    Start: 2014-08-04 02:44:02.792971
+2014-08-04 02:44:02:shellUIwindow_window:----------------------------------------
+2014-08-04 02:44:02:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:44:02:shellUIwindow_window:    Start: 2014-08-04 02:44:02.795071
+2014-08-04 02:44:10:shellUI:COMMANDLINE[2]: cmd param --arg 1 --another 2
+2014-08-04 02:44:10:commandParser:parse() starting
+2014-08-04 02:44:10:commandParser:0:starting...
+2014-08-04 02:44:10:commandParser:0:val:  1
+2014-08-04 02:44:10:commandParser:0:arg:  arg
+2014-08-04 02:44:10:commandParser:0:next: --another
+2014-08-04 02:44:10:commandParser:0:starting...
+2014-08-04 02:44:10:commandParser:0:val:  2
+2014-08-04 02:44:10:commandParser:0:arg:  another
+2014-08-04 02:44:10:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [list index out of range]
+2014-08-04 02:44:10:shellUI:
+command: 	cmd
+parameter:	param
+arguments: [{'arg': '1'}]
+
+2014-08-04 02:44:10:shellUI:__del__()
+2014-08-04 02:44:42:commandParser:----------------------------------------
+2014-08-04 02:44:42:commandParser:    logger.log[commandParser]
+2014-08-04 02:44:42:commandParser:    Start: 2014-08-04 02:44:42.841335
+2014-08-04 02:44:42:shellUI:----------------------------------------
+2014-08-04 02:44:42:shellUI:    logger.log[shellUI]
+2014-08-04 02:44:42:shellUI:    Start: 2014-08-04 02:44:42.841456
+2014-08-04 02:44:42:shellUIinput:----------------------------------------
+2014-08-04 02:44:42:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:44:42:shellUIinput:    Start: 2014-08-04 02:44:42.841565
+2014-08-04 02:44:42:shellUIhistory:----------------------------------------
+2014-08-04 02:44:42:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:44:42:shellUIhistory:    Start: 2014-08-04 02:44:42.841671
+2014-08-04 02:44:42:shellUIwindow_status:----------------------------------------
+2014-08-04 02:44:42:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:44:42:shellUIwindow_status:    Start: 2014-08-04 02:44:42.841805
+2014-08-04 02:44:42:shellUIwindow_window:----------------------------------------
+2014-08-04 02:44:42:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:44:42:shellUIwindow_window:    Start: 2014-08-04 02:44:42.843422
+2014-08-04 02:44:50:shellUI:COMMANDLINE[2]: cmd param --arg 1 --another 2
+2014-08-04 02:44:50:commandParser:parse() starting
+2014-08-04 02:44:50:commandParser:0:starting...
+2014-08-04 02:44:50:commandParser:0:val:  1
+2014-08-04 02:44:50:commandParser:0:arg:  arg
+2014-08-04 02:44:50:commandParser:0:next: --another
+2014-08-04 02:44:50:commandParser:1:starting...
+2014-08-04 02:44:50:commandParser:1:val:  2
+2014-08-04 02:44:50:commandParser:1:arg:  another
+2014-08-04 02:44:50:commandParser:parse(): ERROR[<type 'str'>]:failed to parse args [list index out of range]
+2014-08-04 02:44:50:shellUI:
+command: 	cmd
+parameter:	param
+arguments: [{'arg': '1'}]
+
+2014-08-04 02:44:50:shellUI:__del__()
+2014-08-04 02:45:23:commandParser:----------------------------------------
+2014-08-04 02:45:23:commandParser:    logger.log[commandParser]
+2014-08-04 02:45:23:commandParser:    Start: 2014-08-04 02:45:23.390676
+2014-08-04 02:45:23:shellUI:----------------------------------------
+2014-08-04 02:45:23:shellUI:    logger.log[shellUI]
+2014-08-04 02:45:23:shellUI:    Start: 2014-08-04 02:45:23.390826
+2014-08-04 02:45:23:shellUIinput:----------------------------------------
+2014-08-04 02:45:23:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:45:23:shellUIinput:    Start: 2014-08-04 02:45:23.391300
+2014-08-04 02:45:23:shellUIhistory:----------------------------------------
+2014-08-04 02:45:23:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:45:23:shellUIhistory:    Start: 2014-08-04 02:45:23.391653
+2014-08-04 02:45:23:shellUIwindow_status:----------------------------------------
+2014-08-04 02:45:23:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:45:23:shellUIwindow_status:    Start: 2014-08-04 02:45:23.392011
+2014-08-04 02:45:23:shellUIwindow_window:----------------------------------------
+2014-08-04 02:45:23:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:45:23:shellUIwindow_window:    Start: 2014-08-04 02:45:23.393602
+2014-08-04 02:45:32:shellUI:COMMANDLINE[2]: cmd param --arg 1 --another 2
+2014-08-04 02:45:32:commandParser:parse() starting
+2014-08-04 02:45:32:commandParser:0:starting...
+2014-08-04 02:45:32:commandParser:0:val:  1
+2014-08-04 02:45:32:commandParser:0:arg:  arg
+2014-08-04 02:45:32:commandParser:1:starting...
+2014-08-04 02:45:32:commandParser:1:val:  2
+2014-08-04 02:45:32:commandParser:1:arg:  another
+2014-08-04 02:45:32:shellUI:
+command: 	cmd
+parameter:	param
+arguments: [{'arg': '1'}, {'another': '2'}]
+
+2014-08-04 02:45:32:shellUI:__del__()
+2014-08-04 02:45:37:commandParser:----------------------------------------
+2014-08-04 02:45:37:commandParser:    logger.log[commandParser]
+2014-08-04 02:45:37:commandParser:    Start: 2014-08-04 02:45:37.463854
+2014-08-04 02:45:37:shellUI:----------------------------------------
+2014-08-04 02:45:37:shellUI:    logger.log[shellUI]
+2014-08-04 02:45:37:shellUI:    Start: 2014-08-04 02:45:37.463958
+2014-08-04 02:45:37:shellUIinput:----------------------------------------
+2014-08-04 02:45:37:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:45:37:shellUIinput:    Start: 2014-08-04 02:45:37.464053
+2014-08-04 02:45:37:shellUIhistory:----------------------------------------
+2014-08-04 02:45:37:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:45:37:shellUIhistory:    Start: 2014-08-04 02:45:37.464116
+2014-08-04 02:45:37:shellUIwindow_status:----------------------------------------
+2014-08-04 02:45:37:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:45:37:shellUIwindow_status:    Start: 2014-08-04 02:45:37.464195
+2014-08-04 02:45:37:shellUIwindow_window:----------------------------------------
+2014-08-04 02:45:37:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:45:37:shellUIwindow_window:    Start: 2014-08-04 02:45:37.465296
+2014-08-04 02:45:52:shellUI:COMMANDLINE[2]: c p --a 1 --b 2 --c 3 --d 4 --e 5
+2014-08-04 02:45:52:commandParser:parse() starting
+2014-08-04 02:45:52:commandParser:0:starting...
+2014-08-04 02:45:52:commandParser:0:val:  1
+2014-08-04 02:45:52:commandParser:0:arg:  a
+2014-08-04 02:45:52:commandParser:1:starting...
+2014-08-04 02:45:52:commandParser:1:val:  2
+2014-08-04 02:45:52:commandParser:1:arg:  b
+2014-08-04 02:45:52:commandParser:2:starting...
+2014-08-04 02:45:52:commandParser:2:val:  3
+2014-08-04 02:45:52:commandParser:2:arg:  c
+2014-08-04 02:45:52:commandParser:3:starting...
+2014-08-04 02:45:52:commandParser:3:val:  4
+2014-08-04 02:45:52:commandParser:3:arg:  d
+2014-08-04 02:45:52:commandParser:4:starting...
+2014-08-04 02:45:52:commandParser:4:val:  5
+2014-08-04 02:45:52:commandParser:4:arg:  e
+2014-08-04 02:45:52:shellUI:
+command: 	c
+parameter:	p
+arguments: [{'a': '1'}, {'b': '2'}, {'c': '3'}, {'d': '4'}, {'e': '5'}]
+
+2014-08-04 02:45:52:shellUI:__del__()
+2014-08-04 02:47:04:commandParser:----------------------------------------
+2014-08-04 02:47:04:commandParser:    logger.log[commandParser]
+2014-08-04 02:47:04:commandParser:    Start: 2014-08-04 02:47:04.617487
+2014-08-04 02:47:04:shellUI:----------------------------------------
+2014-08-04 02:47:04:shellUI:    logger.log[shellUI]
+2014-08-04 02:47:04:shellUI:    Start: 2014-08-04 02:47:04.617721
+2014-08-04 02:47:04:shellUIinput:----------------------------------------
+2014-08-04 02:47:04:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:47:04:shellUIinput:    Start: 2014-08-04 02:47:04.617822
+2014-08-04 02:47:04:shellUIhistory:----------------------------------------
+2014-08-04 02:47:04:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:47:04:shellUIhistory:    Start: 2014-08-04 02:47:04.617917
+2014-08-04 02:47:04:shellUIwindow_status:----------------------------------------
+2014-08-04 02:47:04:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:47:04:shellUIwindow_status:    Start: 2014-08-04 02:47:04.618045
+2014-08-04 02:47:04:shellUIwindow_window:----------------------------------------
+2014-08-04 02:47:04:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:47:04:shellUIwindow_window:    Start: 2014-08-04 02:47:04.619379
+2014-08-04 02:47:08:shellUI:COMMANDLINE[2]: a b c
+2014-08-04 02:47:08:commandParser:parse() starting
+2014-08-04 02:47:08:commandParser:parse(): ERROR[<type 'str'>]:Syntax Error.  Expected --<argName>
+2014-08-04 02:47:08:shellUI:
+command: 	a
+parameter:	b
+arguments: []
+
+2014-08-04 02:47:08:shellUI:__del__()
+2014-08-04 02:48:29:commandParser:----------------------------------------
+2014-08-04 02:48:29:commandParser:    logger.log[commandParser]
+2014-08-04 02:48:29:commandParser:    Start: 2014-08-04 02:48:29.275157
+2014-08-04 02:48:29:shellUI:----------------------------------------
+2014-08-04 02:48:29:shellUI:    logger.log[shellUI]
+2014-08-04 02:48:29:shellUI:    Start: 2014-08-04 02:48:29.275272
+2014-08-04 02:48:29:shellUIinput:----------------------------------------
+2014-08-04 02:48:29:shellUIinput:    logger.log[shellUIinput]
+2014-08-04 02:48:29:shellUIinput:    Start: 2014-08-04 02:48:29.275371
+2014-08-04 02:48:29:shellUIhistory:----------------------------------------
+2014-08-04 02:48:29:shellUIhistory:    logger.log[shellUIhistory]
+2014-08-04 02:48:29:shellUIhistory:    Start: 2014-08-04 02:48:29.275464
+2014-08-04 02:48:29:shellUIwindow_status:----------------------------------------
+2014-08-04 02:48:29:shellUIwindow_status:    logger.log[shellUIwindow_status]
+2014-08-04 02:48:29:shellUIwindow_status:    Start: 2014-08-04 02:48:29.275593
+2014-08-04 02:48:29:shellUIwindow_window:----------------------------------------
+2014-08-04 02:48:29:shellUIwindow_window:    logger.log[shellUIwindow_window]
+2014-08-04 02:48:29:shellUIwindow_window:    Start: 2014-08-04 02:48:29.278635
+2014-08-04 02:48:31:shellUI:COMMANDLINE[2]: d a a
+2014-08-04 02:48:31:shellUI:Syntax Error.  Expected --<argName>
+2014-08-04 02:48:31:shellUI:__del__()

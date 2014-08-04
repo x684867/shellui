@@ -24,6 +24,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #
+
+import re
 from logger import logger
 
 class commandParser:
@@ -73,55 +75,68 @@ class commandParser:
 	
 	def parse(self,commandString):
 		#
-		# command
-		# command <parameter>
-		# command --recipe <recipeName> --account <accountName> [--verbose]
-		# command <parameter> [--recipe <recipeName>] [--account <accountName>] [--verbose]
+		# cmd
+		# cmd <param>
+		# cmd <param> [--recipe <recipe>] [--account <acctName>] [--verbose]
+		# cmd --recipe <recipe> --account <acctName> [--verbose]
 		#
-		PARSE_ITEM_NONE=0
-		PARSE_ITEM_ARG=1
-		PARSE_ITEM_VALUE=2
-		#
-		self.__log.write("parse() starting")
 		try:
-			if type(commandString) is str:
-				self.__log.write("splitting " + commandString)
-				arrCmd=re.sub(' +',' ',commandString).split(' ')
-				self.__log.write("splitStr: " +str(arrCmd))
-			else:
-				raise Exception(
-									"commandString not type <string> type:" + \
-									str(type(commandString))
-				)
-			# start parsing for the <command>
+			try:
+				if type(commandString) is str:
+					arrCmd=re.sub(' +',' ',commandString).split(' ')
+				else:
+					raise Exception(
+						"commandString not type <string> type:" + \
+						str(type(commandString))
+					)
+			except Exception as err:
+				raise Exception(str(err))
+
 			if len(arrCmd) == 0:
-				self.__command=""
-				self.__parameter=""
-				self.__arguments=[]
+				(self.__command,self.__parameter,self.__arguments)=("","",[])
 			elif len(arrCmd) >=1:
-				#A command exists.
-				self.__command=arrCmd.pop(0)
-				#Check for a parameter.		
-				if (len(arrCmd) >0) and (arrCmd[0][0:2] != "--"):
-					self.__parameter=arrCmd.pop(0)
-				#Check for arguments.
-				lastItem=PARSE_ITEM_NONE
-				a=''
-				v=''
-				while len(arrCmd) >0:
-					item=arrCmd(0)
-					if item[0:2] == "--":
-						a=item[2:]
-						lastItem=PARSE_ITEM_ARG
+				try:
+					# start parsing for the <command>
+					try:
+						self.__command=arrCmd.pop(0)
+					except Exception as err:
+						raise Exception("failed to pop command ["+str(err)+"]")
+						
+					#Check for an optional parameter.		
+					if (len(arrCmd) >0) and (arrCmd[0][0:2] != "--"):
+						try:
+							self.__parameter=arrCmd.pop(0)
+						except Exception as err:
+							raise Exception("failed to pop parameter ["+str(err)+"]")
+						
+					#Check for arguments.
+					if arrCmd[0][0:2] == "--":
+						#We have an argument.
+						try:
+							i=0					
+							while len(arrCmd) >0:
+								(a,v)=('','')
+								item=arrCmd.pop(0)
+								if item[0:2] == "--":
+									a=item[2:]
+									if arrCmd[0][0:2] != "--":
+										v=arrCmd.pop(0)
+									else:
+										raise Exception("Syntax error.  Expected --<argName>")	
+									self.__log.write(str(i)+":arg:  " +str(a))
+								#
+								self.__arguments.append({a:v})
+								i+=1
+						except Exception as err:
+							raise Exception("failed to parse args ["+str(err)+"]")
 					else:
-						if lastItem==PARSE_ITEM_ARG:
-							v=item
-							lastItem=PARSE_ITEM_VALUE
-						else:
-							raise Exception("Syntax error.  Expected --<argName>")
-					self.__arguments.append({a:v})
+						raise Exception("Syntax Error.  Expected --<argName>")	
+				except Exception as err:
+					raise Exception(str(err))
 			else:
 				raise Exception("unexpected internal error.")
 		except Exception as err:
-			self.__log.write("parse(): ERROR["+str(type(commandString))+"]:"+str(err))
-			
+			raise Exception(str(err))
+
+
+

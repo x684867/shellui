@@ -53,16 +53,21 @@ class shellUI(shellUIinput):
 				commandString=self.getInput(self.__uiRow)
 				self.__uiRow+=1
 			except Exception as err:
-				raise Exception("shellUI failed to get command string.  " + str(err))
+				raise Exception(
+								"shellUI failed to get command string.  " + 
+								str(err)
+				)
 
-			self.__log.write("COMMANDLINE["+str(self.__uiRow)+"]: " + str(commandString))
+			self.__log.write(
+								"COMMANDLINE["+str(self.__uiRow)+"]: " + 
+								str(commandString)
+			)
 			
-			if self.__parser.hasCommand():
-				try:
-					self.__parser.parse(commandString)
-				except Exception as err:
-					raise Exception(err)
-			
+			try:
+				self.__parser.parse(commandString)
+			except Exception as err:
+				raise Exception(err)
+				
 			self.__log.write(
 				"\ncommand: 	" + self.__parser.command + "\n" + \
 				"parameter:	" + self.__parser.parameter + "\n" + \
